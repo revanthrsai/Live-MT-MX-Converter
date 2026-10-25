@@ -314,7 +314,7 @@
     const targetButton = action === "convert" ? translateButton : checkButton;
     const previousText = targetButton.textContent;
     targetButton.textContent = oldText;
-    setBanner("", action === "convert" ? "Running conversion rules…" : "Checking source message…", "The selected code-based checks are running in your browser.");
+    setBanner("", action === "convert" ? "Running conversion rules…" : "Checking source message…", "The selected deterministic checks are running. No conversion service is involved.");
 
     try {
       pyodide.globals.set("browser_payload_json", JSON.stringify({
@@ -326,7 +326,7 @@
       const rawResult = pyodide.runPython("process_payload_json(browser_payload_json)");
       pyodide.globals.delete("browser_payload_json");
       renderReport(JSON.parse(rawResult));
-      setBanner("ready", "Local engine ready", "Mapping and validation ran in your browser. The source message was not sent to a conversion service.");
+      setBanner("ready", "Local engine ready", "Mapping and validation completed. Your source message was not sent to a conversion service.");
     } catch (error) {
       console.error("Live MT-MX browser engine error", error);
       renderReport({
@@ -389,7 +389,7 @@
 
   async function initialize() {
     try {
-      setBanner("", "Preparing local conversion engine…", "Downloading the pinned browser Python runtime and XML support. This can take a little longer on the first visit.");
+      setBanner("", "Preparing the mapping engine…", "Loading the pinned Python runtime and XML support. First-time setup may take a little longer.");
       await loadPyodideScript();
       pyodide = await window.loadPyodide({ indexURL: PYODIDE_BASE });
       await pyodide.loadPackage("lxml");
@@ -401,10 +401,10 @@
       pythonReady = true;
       setControlsEnabled(true);
       updateCounter();
-      setBanner("ready", "Local engine ready", "The existing Python mapping engine and its code-based checks are loaded. Messages are processed in this browser tab.");
+      setBanner("ready", "Mapping engine ready", "The existing Python mapping engine and code-based checks are ready. Your messages are processed locally.");
     } catch (error) {
       console.error("Live MT-MX runtime initialization failed", error);
-      setBanner("error", "Could not initialize the local engine", `${String(error.message || error).slice(0, 400)} Check your internet connection and browser network policy, then reload. No conversion API is configured.`);
+      setBanner("error", "Could not initialize the mapping engine", `${String(error.message || error).slice(0, 400)} Check your internet connection and browser network policy, then reload. No conversion API is configured.`);
       setControlsEnabled(false);
     }
   }

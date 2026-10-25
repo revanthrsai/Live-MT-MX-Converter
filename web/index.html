@@ -4,111 +4,110 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Live MT-MX Converter</title>
-  <meta name="description" content="A local, deterministic SWIFT MT and ISO 20022 message converter.">
+  <meta name="referrer" content="no-referrer">
+  <title>Live MT-MX Converter · ISO 20022 Academy</title>
+  <meta name="description" content="A payment-geek tool for rules-based SWIFT MT and ISO 20022 message conversion.">
+  <meta name="theme-color" content="#f5f7f3">
   <link rel="stylesheet" href="/styles.css">
   <script src="/app.js" defer></script>
 </head>
 <body data-pairs='__PAIR_MAP__' data-selected-target="__SELECTED_TARGET__">
   <header class="topbar">
-    <a class="brand" href="/" aria-label="Live MT-MX Converter home">
-      <span class="brand-mark" aria-hidden="true">M↔X</span>
-      <span class="brand-copy">
-        <strong>Live MT-MX Converter</strong>
-        <small>Deterministic mapping engine</small>
-      </span>
-    </a>
-    <span class="local-pill"><span class="local-dot"></span> Runs locally</span>
+    <div class="topbar-inner">
+      <a class="brand" href="/" aria-label="Live MT-MX Converter home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 44 44" fill="none" role="presentation">
+            <path d="M8 14.5h9.5l4.2 6.1 4.2-6.1H36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 29.5h9.5l4.2-6.1 4.2 6.1H36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8" cy="14.5" r="2.4" fill="currentColor"/><circle cx="36" cy="29.5" r="2.4" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-copy"><strong>Live MT-MX Converter</strong><small>ISO 20022 Academy</small></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="tool-pill"><span class="pill-spark" aria-hidden="true">✳</span>A payment-geek tool</span>
+        <a class="academy-link" href="https://iso20022academy.in/" target="_blank" rel="noopener noreferrer">Explore the Academy <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
   </header>
 
   <main class="page-shell">
-    <section class="intro">
-      <p class="eyebrow">SWIFT MT · ISO 20022 MX</p>
-      <h1>Convert messages.<br><span>Know what changed.</span></h1>
-      <p class="intro-copy">Choose a supported message pair, paste your message and run the mapping rules. The input is checked before translation, and the generated output is checked again.</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> PAYMENT MESSAGE WORKSPACE</p>
+        <h1 id="hero-title">Move the message.<br><span>Preserve the meaning.</span></h1>
+        <p class="intro-copy">Translate supported SWIFT MT and ISO 20022 MX messages with explicit mapping rules, useful validation and a clear view of what changed.</p>
+        <div class="hero-assurances" aria-label="Tool principles">
+          <span><span class="assurance-check" aria-hidden="true">✓</span> Rules, not guesses</span>
+          <span><span class="assurance-check" aria-hidden="true">✓</span> Clear validation</span>
+          <span><span class="assurance-check" aria-hidden="true">✓</span> No conversion API</span>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Message transformation overview">
+        <div class="visual-topline"><span>THE TRANSLATION FLOW</span><span class="visual-index">01 — 03</span></div>
+        <div class="flow-step"><span class="flow-symbol source-symbol" aria-hidden="true">XML</span><div class="flow-step-copy"><small>INPUT</small><strong>Source message</strong><span>MT or ISO 20022 MX</span></div><span class="step-number">01</span></div>
+        <div class="flow-connector"><span></span><span class="connector-node"></span><span></span></div>
+        <div class="flow-step engine-step"><span class="flow-symbol engine-symbol" aria-hidden="true">↔</span><div class="flow-step-copy"><small>TRANSFORM</small><strong>Mapping rules</strong><span>Parse · Map · Validate</span></div><span class="step-number">02</span></div>
+        <div class="flow-connector"><span></span><span class="connector-node"></span><span></span></div>
+        <div class="flow-step"><span class="flow-symbol output-symbol" aria-hidden="true">MT</span><div class="flow-step-copy"><small>OUTPUT</small><strong>Destination message</strong><span>With reviewable findings</span></div><span class="step-number">03</span></div>
+        <div class="visual-foot"><span class="visual-foot-dot"></span> Deterministic mapping engine</div>
+      </aside>
     </section>
 
     <section class="workspace" aria-labelledby="converter-title">
       <div class="workspace-head">
-        <div>
-          <p class="eyebrow">LOCAL WORKSPACE</p>
+        <div class="workspace-title-group">
+          <p class="eyebrow workspace-eyebrow"><span class="section-number">01</span> CONVERSION</p>
           <h2 id="converter-title">Message converter</h2>
+          <p class="workspace-subtitle">Choose the pair. Add your message. Review the result.</p>
         </div>
-        <p class="privacy-note"><span aria-hidden="true">●</span> No cloud calls or AI fallback</p>
+        <div class="rules-badge"><span class="rules-badge-icon" aria-hidden="true">✳</span><span><strong>Rules-based engine</strong><small>Only supported mappings</small></span></div>
       </div>
 
-      <form method="post" action="/" id="converterForm">
+      <form method="post" action="/" id="converterForm" novalidate>
         <div class="format-row">
-          <div class="field-group">
-            <label for="sourceFormat">Source message format</label>
-            <select id="sourceFormat" name="source" required>
-              <!-- SOURCE_OPTIONS -->
-            </select>
-            <p class="field-hint">Select the format of the message you pasted.</p>
+          <div class="field-group format-card">
+            <div class="field-label-row"><span class="format-index">A</span><label for="sourceFormat">Source format</label></div>
+            <select id="sourceFormat" name="source" required><!-- SOURCE_OPTIONS --></select>
+            <p class="field-hint">The message you have</p>
           </div>
-          <div class="direction-arrow" aria-hidden="true">→</div>
-          <div class="field-group">
-            <label for="targetFormat">Destination message format</label>
+          <div class="direction-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h15m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="field-group format-card destination-card">
+            <div class="field-label-row"><span class="format-index">B</span><label for="targetFormat">Destination format</label></div>
             <select id="targetFormat" name="target" required></select>
-            <p class="field-hint" id="targetHint">Only registered mappings are available.</p>
+            <p class="field-hint" id="targetHint">Only registered mappings will be shown.</p>
           </div>
         </div>
 
-        <div class="field-group message-field">
-          <div class="label-line">
-            <label for="sourceMessage">Source message</label>
-            <span class="field-hint">Paste XML or an MT message</span>
+        <div class="message-field">
+          <div class="editor-heading">
+            <div class="editor-title-wrap"><span class="editor-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3.75h7l4 4v12.5H7a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3.75v4.5h4M8.5 12h7M8.5 15.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><div><label for="sourceMessage">Source message</label><p>Paste XML or an MT message</p></div></div>
+            <span class="editor-format-tag">XML <span>·</span> FIN</span>
           </div>
-          <textarea id="sourceMessage" name="message" maxlength="1000000" spellcheck="false" required placeholder="Paste your source message here…">__MESSAGE_VALUE__</textarea>
-          <div class="editor-footer">
-            <span id="inputCounter">0 characters</span>
-            <div class="editor-links"><button class="text-button" type="button" id="clearInput">Clear</button><a href="/examples/pacs.008.xml" target="_blank" rel="noreferrer">Open sample pacs.008</a></div>
+          <div class="editor-frame">
+            <textarea id="sourceMessage" name="message" maxlength="1000000" spellcheck="false" required placeholder="Paste your source message here…">__MESSAGE_VALUE__</textarea>
+            <div class="editor-footer">
+              <span class="character-count"><span class="count-dot" aria-hidden="true"></span><span id="inputCounter">0 characters</span></span>
+              <div class="editor-links"><a class="text-button sample-button" href="/examples/pacs.008.xml" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Open pacs.008 sample</a><span class="action-divider" aria-hidden="true"></span><button class="text-button clear-button" type="button" id="clearInput">Clear</button></div>
+            </div>
           </div>
         </div>
 
         <div class="button-row">
-          <button class="button button-secondary" type="submit" name="action" value="validate">
-            <span aria-hidden="true">✓</span> Check input
-          </button>
-          <button class="button button-primary" id="translateButton" type="submit" name="action" value="convert">
-            Translate message <span aria-hidden="true">→</span>
-          </button>
+          <p class="action-note"><span class="action-note-icon" aria-hidden="true">ⓘ</span> Input checks run before translation.</p>
+          <div class="primary-actions"><button class="button button-secondary" type="submit" name="action" value="validate"><span class="check-icon" aria-hidden="true">✓</span> Check input</button><button class="button button-primary" id="translateButton" type="submit" name="action" value="convert">Translate message <span class="button-arrow" aria-hidden="true">↗</span></button></div>
         </div>
-        <p class="privacy-footnote">Messages are processed by this local application. Do not use this prototype as a production banking channel.</p>
+        <p class="privacy-footnote">Messages are processed by this local application and are not sent to a conversion service. This is a development/learning tool, not a production banking channel.</p>
       </form>
-
-      <!-- RESULT_PANEL -->
+      <div id="resultContainer"><!-- RESULT_PANEL --></div>
     </section>
 
-    <section class="capability-section">
-      <div class="section-heading">
-        <p class="eyebrow">SCOPE OF THIS RELEASE</p>
-        <h2>Rules first. No guessing.</h2>
-      </div>
-      <div class="capability-grid">
-        <article class="capability-card">
-          <span class="capability-icon" aria-hidden="true">↔</span>
-          <h3>Registered pairs only</h3>
-          <p>Unsupported source and destination combinations are rejected instead of guessed.</p>
-        </article>
-        <article class="capability-card">
-          <span class="capability-icon" aria-hidden="true">✓</span>
-          <h3>Code-based checks</h3>
-          <p>Checks include XML parsing, IBAN checksum, BIC shape, dates, amounts and message-specific rules.</p>
-        </article>
-        <article class="capability-card">
-          <span class="capability-icon" aria-hidden="true">≠</span>
-          <h3>Visible differences</h3>
-          <p>Review notes, generated fields, dropped fields and mapping checks before using the result.</p>
-        </article>
-      </div>
-    </section>
+    <aside class="engine-note" aria-labelledby="engine-note-title">
+      <div class="note-icon" aria-hidden="true">!</div>
+      <div class="note-copy"><p class="note-eyebrow">A NOTE ON MAPPING RULES</p><h2 id="engine-note-title">The mapping rules engine needs to evolve.</h2><p>ISO 20022 message definitions and market-practice rules change over time. Mappings should be reviewed and updated as those requirements evolve. If you spot an issue or have an improvement to suggest, <a href="https://www.linkedin.com/in/revanth-sai-2002/" target="_blank" rel="noopener noreferrer">message me on LinkedIn <span aria-hidden="true">↗</span></a>.</p></div>
+    </aside>
 
-    <footer class="site-footer">
-      <span>Live MT-MX Converter</span>
-      <span>Local, deterministic and version-pinned</span>
-    </footer>
+    <footer class="site-footer"><a class="footer-brand" href="https://iso20022academy.in/" target="_blank" rel="noopener noreferrer">ISO 20022 Academy <span aria-hidden="true">↗</span></a><span class="footer-caption">Built for people who love payment messages.</span><a class="footer-linkedin" href="https://www.linkedin.com/in/revanth-sai-2002/" target="_blank" rel="noopener noreferrer"><span class="linkedin-mark">in</span> Revanth Sai Rayapati</a></footer>
   </main>
-
 </body>
 </html>
