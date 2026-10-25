@@ -1,0 +1,13 @@
+{
+  "code": "MT199",
+  "family": "mt",
+  "label": "MT199",
+  "kind": "Free format message",
+  "sub": "Free format message",
+  "note": "HDFC Bank tells the sending bank, in free text, that the $400 was credited.",
+  "std": "MT",
+  "dest": [
+    "translator"
+  ],
+  "message": "{1:F01DEMOINBBAXXX0000000000}{2:I199TESTAEADXXXXN}{4:\n:20:DEMOINBB-STS-202\n:21:TESTAEAD-INSTR-0\n:79:Payment TESTAEAD-INSTR-0400 for USD 400,00\n(UETR eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4)\nwas credited to the beneficiary on 2026-06-27.\nStatus: ACSC.\n-}\n"
+}

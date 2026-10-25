@@ -1,0 +1,13 @@
+{
+  "code": "camt.054",
+  "family": "camt",
+  "label": "camt.054",
+  "kind": "Debit / credit notification",
+  "sub": "Debit / credit notification",
+  "note": "HDFC Bank tells Sweety the moment Bob's $400 lands.",
+  "std": "MX",
+  "dest": [
+    "translator"
+  ],
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:camt.054.001.08\">\n  <BkToCstmrDbtCdtNtfctn>\n    <GrpHdr>\n      <MsgId>DEMOINBB-NTF-20260627-77</MsgId>\n      <CreDtTm>2026-06-27T15:02:11+05:30</CreDtTm>\n    </GrpHdr>\n    <Ntfctn>\n      <Id>NTF-77-0042</Id>\n      <Acct>\n        <Id><Othr><Id>1234567890123456</Id></Othr></Id>\n        <Ccy>USD</Ccy>\n        <Ownr><Nm>Payee Example</Nm></Ownr>\n      </Acct>\n      <Ntry>\n        <Amt Ccy=\"USD\">400.00</Amt>\n        <CdtDbtInd>CRDT</CdtDbtInd>\n        <Sts><Cd>BOOK</Cd></Sts>\n        <BookgDt><DtTm>2026-06-27T15:02:00+05:30</DtTm></BookgDt>\n        <ValDt><Dt>2026-06-27</Dt></ValDt>\n        <NtryDtls><TxDtls>\n          <Refs><InstrId>TESTAEAD-INSTR-0400</InstrId><EndToEndId>BOB-INV0042</EndToEndId><UETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</UETR></Refs>\n          <RltdPties><Dbtr><Pty><Nm>Payer Example</Nm></Pty></Dbtr></RltdPties>\n          <RltdAgts><DbtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></DbtrAgt></RltdAgts>\n          <RmtInf><Ustrd>Invoice 0042 - June freelance</Ustrd></RmtInf>\n        </TxDtls></NtryDtls>\n      </Ntry>\n    </Ntfctn>\n  </BkToCstmrDbtCdtNtfctn>\n</Document>\n"
+}

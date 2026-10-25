@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.09">
+  <CstmrCdtTrfInitn>
+    <GrpHdr>
+      <MsgId>BOB-MSG-20260627</MsgId>
+      <CreDtTm>2026-06-27T09:28:14+04:00</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>400.00</CtrlSum>
+      <InitgPty><Nm>Payer Example</Nm></InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>BOB-PMT-0042</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>400.00</CtrlSum>
+      <ReqdExctnDt><Dt>2026-06-27</Dt></ReqdExctnDt>
+      <Dbtr>
+        <Nm>Payer Example</Nm>
+        <PstlAdr><StrtNm>Example Street</StrtNm><TwnNm>Test City</TwnNm><Ctry>AE</Ctry></PstlAdr>
+      </Dbtr>
+      <DbtrAcct><Id><IBAN>AE070331234567890123456</IBAN></Id></DbtrAcct>
+      <DbtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></DbtrAgt>
+      <ChrgBr>SHAR</ChrgBr>
+      <CdtTrfTxInf>
+        <PmtId><EndToEndId>BOB-INV0042</EndToEndId></PmtId>
+        <Amt><InstdAmt Ccy="USD">400.00</InstdAmt></Amt>
+        <CdtrAgt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></CdtrAgt>
+        <Cdtr>
+          <Nm>Payee Example</Nm>
+          <PstlAdr><StrtNm>Sample Avenue</StrtNm><TwnNm>Sample City</TwnNm><Ctry>IN</Ctry></PstlAdr>
+        </Cdtr>
+        <CdtrAcct><Id><Othr><Id>1234567890123456</Id></Othr></Id></CdtrAcct>
+        <RmtInf><Ustrd>Invoice 0042 - June freelance</Ustrd></RmtInf>
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>

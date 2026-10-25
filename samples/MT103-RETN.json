@@ -1,0 +1,13 @@
+{
+  "code": "MT103 RETN",
+  "family": "mt",
+  "label": "MT103 RETN",
+  "kind": "Customer transfer used as a return",
+  "sub": "Customer transfer used as a return",
+  "note": "HDFC Bank sends Bob's $400 back: the account is closed (AC04).",
+  "std": "MT",
+  "dest": [
+    "translator"
+  ],
+  "message": "{1:F01DEMOINBBAXXX0000000000}{2:I103TESTAEADXXXXN}{3:{121:eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4}}{4:\n:20:DEMOINBB-RTR-040\n:23B:CRED\n:32A:260628USD400,00\n:50K:/1234567890123456\nPayee Example\n:59:/AE070331234567890123456\nPayer Example\n:71A:SHA\n:72:/RETN/59\n/AC04/Closed account\n/MREF/TESTAEAD-INSTR-0\n-}\n"
+}

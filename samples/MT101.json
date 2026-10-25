@@ -1,0 +1,13 @@
+{
+  "code": "MT101",
+  "family": "mt",
+  "label": "MT101",
+  "kind": "Request for transfer",
+  "sub": "Request for transfer",
+  "note": "Bob asks his bank to pay Sweety $400, the MT way.",
+  "std": "MT",
+  "dest": [
+    "translator"
+  ],
+  "message": "{1:F01TESTAEADAXXX0000000000}{2:I101TESTAEADXXXXN}{4:\n:20:BOB-MSG-20260627\n:28D:1/1\n:50H:/AE070331234567890123456\nPayer Example\nExample Street, Test City\n:52A:TESTAEAD\n:30:260627\n:21:BOB-INV0042\n:32B:USD400,00\n:57A:DEMOINBB\n:59:/1234567890123456\nPayee Example\nSample Avenue, Sample City\n:70:Invoice 0042 - June freelance\n:71A:SHA\n-}\n"
+}

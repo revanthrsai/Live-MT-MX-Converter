@@ -1,0 +1,13 @@
+{
+  "code": "camt.053",
+  "family": "camt",
+  "label": "camt.053",
+  "kind": "Bank-to-customer statement",
+  "sub": "Bank-to-customer statement",
+  "note": "Sweety's end-of-day statement, with Bob's $400 booked.",
+  "std": "MX",
+  "dest": [
+    "translator"
+  ],
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:camt.053.001.08\">\n  <BkToCstmrStmt>\n    <GrpHdr>\n      <MsgId>DEMOINBB-STMT-20260627</MsgId>\n      <CreDtTm>2026-06-27T23:59:00+05:30</CreDtTm>\n    </GrpHdr>\n    <Stmt>\n      <Id>STMT-20260627-01</Id>\n      <ElctrncSeqNb>1</ElctrncSeqNb>\n      <CreDtTm>2026-06-27T23:59:00+05:30</CreDtTm>\n      <Acct>\n        <Id><Othr><Id>1234567890123456</Id></Othr></Id>\n        <Ccy>USD</Ccy>\n        <Ownr><Nm>Payee Example</Nm></Ownr>\n      </Acct>\n      <Bal>\n        <Tp><CdOrPrtry><Cd>OPBD</Cd></CdOrPrtry></Tp>\n        <Amt Ccy=\"USD\">0.00</Amt>\n        <CdtDbtInd>CRDT</CdtDbtInd>\n        <Dt><Dt>2026-06-27</Dt></Dt>\n      </Bal>\n      <Bal>\n        <Tp><CdOrPrtry><Cd>CLBD</Cd></CdOrPrtry></Tp>\n        <Amt Ccy=\"USD\">400.00</Amt>\n        <CdtDbtInd>CRDT</CdtDbtInd>\n        <Dt><Dt>2026-06-27</Dt></Dt>\n      </Bal>\n      <Ntry>\n        <Amt Ccy=\"USD\">400.00</Amt>\n        <CdtDbtInd>CRDT</CdtDbtInd>\n        <Sts><Cd>BOOK</Cd></Sts>\n        <BookgDt><Dt>2026-06-27</Dt></BookgDt>\n        <ValDt><Dt>2026-06-27</Dt></ValDt>\n        <BkTxCd><Prtry><Cd>NTRF</Cd></Prtry></BkTxCd>\n        <NtryDtls><TxDtls>\n          <Refs><EndToEndId>BOB-INV0042</EndToEndId><UETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</UETR></Refs>\n          <RltdPties><Dbtr><Pty><Nm>Payer Example</Nm></Pty></Dbtr></RltdPties>\n          <RmtInf><Ustrd>Invoice 0042 - June freelance</Ustrd></RmtInf>\n        </TxDtls></NtryDtls>\n      </Ntry>\n    </Stmt>\n  </BkToCstmrStmt>\n</Document>\n"
+}

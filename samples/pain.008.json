@@ -1,0 +1,13 @@
+{
+  "code": "pain.008",
+  "family": "pain",
+  "label": "pain.008",
+  "kind": "Customer direct debit initiation",
+  "sub": "Customer direct debit initiation",
+  "note": "Test City Electricity collects Bob's June bill by direct debit.",
+  "std": "MX",
+  "dest": [
+    "translator"
+  ],
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:pain.008.001.08\">\n  <CstmrDrctDbtInitn>\n    <GrpHdr>\n      <MsgId>UTIL-DD-20260627</MsgId>\n      <CreDtTm>2026-06-27T06:00:00+04:00</CreDtTm>\n      <NbOfTxs>1</NbOfTxs>\n      <CtrlSum>120.00</CtrlSum>\n      <InitgPty><Nm>Example Utility Co</Nm></InitgPty>\n    </GrpHdr>\n    <PmtInf>\n      <PmtInfId>UTIL-PMT-0007</PmtInfId>\n      <PmtMtd>DD</PmtMtd>\n      <NbOfTxs>1</NbOfTxs>\n      <CtrlSum>120.00</CtrlSum>\n      <ReqdColltnDt>2026-06-30</ReqdColltnDt>\n      <Cdtr><Nm>Example Utility Co</Nm></Cdtr>\n      <CdtrAcct><Id><IBAN>AE020331000000000099887</IBAN></Id></CdtrAcct>\n      <CdtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></CdtrAgt>\n      <DrctDbtTxInf>\n        <PmtId><EndToEndId>UTIL-JUN-0007</EndToEndId></PmtId>\n        <InstdAmt Ccy=\"AED\">120.00</InstdAmt>\n        <DrctDbtTx><MndtRltdInf><MndtId>EXAMPLE-MANDATE-1187</MndtId><DtOfSgntr>2025-01-15</DtOfSgntr></MndtRltdInf></DrctDbtTx>\n        <DbtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></DbtrAgt>\n        <Dbtr><Nm>Payer Example</Nm></Dbtr>\n        <DbtrAcct><Id><IBAN>AE070331234567890123456</IBAN></Id></DbtrAcct>\n        <RmtInf><Ustrd>Electricity - June</Ustrd></RmtInf>\n      </DrctDbtTxInf>\n    </PmtInf>\n  </CstmrDrctDbtInitn>\n</Document>\n"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "MT104",
+  "family": "mt",
+  "label": "MT104",
+  "kind": "Direct debit and request for debit transfer",
+  "sub": "Direct debit and request for debit transfer",
+  "note": "Test City Electricity collects Bob's June bill.",
+  "std": "MT",
+  "dest": [
+    "translator"
+  ],
+  "message": "{1:F01TESTAEADAXXX0000000000}{2:I104TESTAEADXXXXN}{4:\n:20:UTIL-DD-20260627\n:30:260630\n:21:UTIL-JUN-0007\n:32B:AED120,00\n:50K:/AE020331000000000099887\nExample Utility Co\n:57A:TESTAEAD\n:59:/AE070331234567890123456\nPayer Example\n:70:Electricity - June\n:71A:SHA\n:32B:AED120,00\n:19:120,00\n-}\n"
+}

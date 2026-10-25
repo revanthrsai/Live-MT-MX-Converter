@@ -1,0 +1,13 @@
+{
+  "code": "MT192",
+  "family": "mt",
+  "label": "MT192",
+  "kind": "Request for cancellation",
+  "sub": "Request for cancellation",
+  "note": "the sending bank asks HDFC to cancel the $400: it was sent twice.",
+  "std": "MT",
+  "dest": [
+    "translator"
+  ],
+  "message": "{1:F01TESTAEADAXXX0000000000}{2:I192DEMOINBBXXXXN}{3:{121:eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4}}{4:\n:20:TESTAEAD-CXL-040\n:21:TESTAEAD-INSTR-0\n:11S:103\n260627\n:79:/DUPL/Duplicate payment. Please cancel\nand return USD 400,00.\n-}\n"
+}

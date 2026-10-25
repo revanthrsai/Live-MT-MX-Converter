@@ -1,0 +1,13 @@
+{
+  "code": "pacs.002",
+  "family": "pacs",
+  "label": "pacs.002",
+  "kind": "FI-to-FI payment status report",
+  "sub": "FI-to-FI payment status report",
+  "note": "HDFC Bank confirms Bob's $400 was credited to Sweety (ACSC).",
+  "std": "MX",
+  "dest": [
+    "translator"
+  ],
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10\">\n  <FIToFIPmtStsRpt>\n    <GrpHdr>\n      <MsgId>DEMOINBB-STS-20260627-400</MsgId>\n      <CreDtTm>2026-06-27T15:01:40+05:30</CreDtTm>\n      <InstgAgt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></InstgAgt>\n      <InstdAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></InstdAgt>\n    </GrpHdr>\n    <TxInfAndSts>\n      <OrgnlGrpInf><OrgnlMsgId>TESTAEAD-20260627-000400</OrgnlMsgId><OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId></OrgnlGrpInf>\n      <OrgnlInstrId>TESTAEAD-INSTR-0400</OrgnlInstrId>\n      <OrgnlEndToEndId>BOB-INV0042</OrgnlEndToEndId>\n      <OrgnlUETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</OrgnlUETR>\n      <TxSts>ACSC</TxSts>\n      <AccptncDtTm>2026-06-27T15:01:30+05:30</AccptncDtTm>\n    </TxInfAndSts>\n  </FIToFIPmtStsRpt>\n</Document>\n"
+}

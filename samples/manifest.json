@@ -1,0 +1,209 @@
+[
+  {
+    "code": "admi.002",
+    "family": "admi",
+    "label": "admi.002",
+    "kind": "Message reject",
+    "sub": "Message Reject",
+    "note": "The network refusing a malformed message at the door, before any business logic.",
+    "dest": [
+      "viewer"
+    ]
+  },
+  {
+    "code": "admi.004",
+    "family": "admi",
+    "label": "admi.004",
+    "kind": "System event",
+    "sub": "System Event Notification",
+    "note": "The network talking to itself — a value cut-off has been reached.",
+    "dest": [
+      "viewer"
+    ]
+  },
+  {
+    "code": "caaa.001",
+    "family": "caaa",
+    "label": "caaa.001",
+    "kind": "Card authorisation",
+    "sub": "Acceptor Authorisation Request",
+    "note": "Bob taps his card for coffee. Before the till beeps, this question races to the issuer: can he spend AED 18.50?",
+    "dest": [
+      "viewer"
+    ]
+  },
+  {
+    "code": "camt.053",
+    "family": "camt",
+    "label": "camt.053",
+    "kind": "Statement",
+    "sub": "Bank-to-Customer Statement",
+    "note": "End-of-day: the same credit, now a line on Sweety's statement.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "camt.054",
+    "family": "camt",
+    "label": "camt.054",
+    "kind": "Notification",
+    "sub": "Bank-to-Customer Debit/Credit Notification",
+    "note": "the receiving bank pings her the moment the $400 lands.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "camt.056",
+    "family": "camt",
+    "label": "camt.056",
+    "kind": "Cancellation",
+    "sub": "FI-to-FI Payment Cancellation Request",
+    "note": "Second thoughts — a request to recall the transfer before it is spent.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "fxtr.014",
+    "family": "fxtr",
+    "label": "fxtr.014",
+    "kind": "FX trade",
+    "sub": "Foreign Exchange Trade Instruction",
+    "note": "Behind Bob's $400 sits a bigger machine: his bank sells USD for INR in the interbank market to cover the day's remittance flow.",
+    "dest": [
+      "viewer"
+    ]
+  },
+  {
+    "code": "head.001-camt",
+    "family": "head",
+    "label": "head.001",
+    "kind": "BAH · over camt.054",
+    "sub": "Business Application Header",
+    "note": "The same envelope, this time around the notification flowing the other way.",
+    "dest": [
+      "viewer"
+    ]
+  },
+  {
+    "code": "head.001-pacs",
+    "family": "head",
+    "label": "head.001",
+    "kind": "BAH · over pacs.008",
+    "sub": "Business Application Header",
+    "note": "The envelope wrapped around the pacs.008 — who, to whom, which message.",
+    "dest": [
+      "viewer"
+    ]
+  },
+  {
+    "code": "pacs.002",
+    "family": "pacs",
+    "label": "pacs.002",
+    "kind": "Status",
+    "sub": "FI-to-FI Payment Status Report",
+    "note": "the receiving bank confirms back up the wire: settled, accepted.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "pacs.004",
+    "family": "pacs",
+    "label": "pacs.004",
+    "kind": "Return",
+    "sub": "Payment Return",
+    "note": "The unhappy path — the $400 sent back, settled funds returned with a reason.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "pacs.008",
+    "family": "pacs",
+    "label": "pacs.008",
+    "kind": "Credit transfer",
+    "sub": "FI-to-FI Customer Credit Transfer",
+    "note": "the sending bank to the receiving bank, on the wire. The one the Transformer speaks.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "pain.001",
+    "family": "pain",
+    "label": "pain.001",
+    "kind": "Initiation",
+    "sub": "Customer Credit Transfer Initiation",
+    "note": "Bob tells his bank to pay Sweety $400. Where the whole story starts.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "pain.002",
+    "family": "pain",
+    "label": "pain.002",
+    "kind": "Status",
+    "sub": "Customer Payment Status Report",
+    "note": "the sending bank answers his instruction: accepted, on its way.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "pain.008",
+    "family": "pain",
+    "label": "pain.008",
+    "kind": "Direct debit",
+    "sub": "Customer Direct Debit Initiation",
+    "note": "The mirror image — a biller pulling funds instead of a payer pushing them.",
+    "dest": [
+      "viewer",
+      "transformer"
+    ]
+  },
+  {
+    "code": "semt.002",
+    "family": "semt",
+    "label": "semt.002",
+    "kind": "Custody statement",
+    "sub": "Securities Balance Custody Report",
+    "note": "Month-end: the custodian reports what the pension fund actually holds — the camt.053 of the securities world.",
+    "dest": [
+      "viewer"
+    ]
+  },
+  {
+    "code": "sese.023",
+    "family": "sese",
+    "label": "sese.023",
+    "kind": "Settlement instruction",
+    "sub": "Securities Settlement Transaction Instruction",
+    "note": "Bob's pension fund buys 500 UAE government bonds — the instruction that tells the custodian to receive them against payment.",
+    "dest": [
+      "viewer"
+    ]
+  },
+  {
+    "code": "tsin.001",
+    "family": "tsin",
+    "label": "tsin.001",
+    "kind": "Invoice financing",
+    "sub": "Invoice Financing Request",
+    "note": "Sweety's employer waits 60 days for a customer to pay a ₹42 lakh invoice — so it asks its bank to advance the cash against it today.",
+    "dest": [
+      "viewer"
+    ]
+  }
+]

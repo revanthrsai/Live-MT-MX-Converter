@@ -1,0 +1,13 @@
+{
+  "code": "pain.002",
+  "family": "pain",
+  "label": "pain.002",
+  "kind": "Customer payment status report",
+  "sub": "Customer payment status report",
+  "note": "the sending bank tells him his instruction was accepted (ACCP).",
+  "std": "MX",
+  "dest": [
+    "translator"
+  ],
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:pain.002.001.10\">\n  <CstmrPmtStsRpt>\n    <GrpHdr>\n      <MsgId>TESTAEAD-STS-20260627-01</MsgId>\n      <CreDtTm>2026-06-27T09:29:02+04:00</CreDtTm>\n      <InitgPty><Nm>Example Sending Bank</Nm></InitgPty>\n    </GrpHdr>\n    <OrgnlGrpInfAndSts>\n      <OrgnlMsgId>BOB-MSG-20260627</OrgnlMsgId>\n      <OrgnlMsgNmId>pain.001.001.09</OrgnlMsgNmId>\n      <GrpSts>ACCP</GrpSts>\n    </OrgnlGrpInfAndSts>\n    <OrgnlPmtInfAndSts>\n      <OrgnlPmtInfId>BOB-PMT-0042</OrgnlPmtInfId>\n      <TxInfAndSts>\n        <OrgnlEndToEndId>BOB-INV0042</OrgnlEndToEndId>\n        <OrgnlUETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</OrgnlUETR>\n        <TxSts>ACCP</TxSts>\n      </TxInfAndSts>\n    </OrgnlPmtInfAndSts>\n  </CstmrPmtStsRpt>\n</Document>\n"
+}

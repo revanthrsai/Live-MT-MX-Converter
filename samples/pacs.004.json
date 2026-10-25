@@ -1,0 +1,13 @@
+{
+  "code": "pacs.004",
+  "family": "pacs",
+  "label": "pacs.004",
+  "kind": "Payment return",
+  "sub": "Payment return",
+  "note": "HDFC Bank returns Bob's $400: the creditor account is closed (AC04).",
+  "std": "MX",
+  "dest": [
+    "translator"
+  ],
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:pacs.004.001.09\">\n  <PmtRtr>\n    <GrpHdr>\n      <MsgId>DEMOINBB-RTR-20260628-009</MsgId>\n      <CreDtTm>2026-06-28T11:14:00+05:30</CreDtTm>\n      <NbOfTxs>1</NbOfTxs>\n      <SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf>\n      <InstgAgt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></InstgAgt>\n      <InstdAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></InstdAgt>\n    </GrpHdr>\n    <TxInf>\n      <RtrId>DEMOINBB-RTR-0400</RtrId>\n      <OrgnlGrpInf><OrgnlMsgId>TESTAEAD-20260627-000400</OrgnlMsgId><OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId></OrgnlGrpInf>\n      <OrgnlInstrId>TESTAEAD-INSTR-0400</OrgnlInstrId>\n      <OrgnlEndToEndId>BOB-INV0042</OrgnlEndToEndId>\n      <OrgnlUETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</OrgnlUETR>\n      <RtrdIntrBkSttlmAmt Ccy=\"USD\">400.00</RtrdIntrBkSttlmAmt>\n      <IntrBkSttlmDt>2026-06-28</IntrBkSttlmDt>\n      <ChrgBr>SHAR</ChrgBr>\n      <RtrRsnInf><Rsn><Cd>AC04</Cd></Rsn><AddtlInf>Closed account</AddtlInf></RtrRsnInf>\n    </TxInf>\n  </PmtRtr>\n</Document>\n"
+}

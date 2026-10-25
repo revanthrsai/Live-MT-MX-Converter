@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Live MT-MX Converter</title>
+  <meta name="description" content="A local, deterministic SWIFT MT and ISO 20022 message converter.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body data-pairs='__PAIR_MAP__' data-selected-target="__SELECTED_TARGET__">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Live MT-MX Converter home">
+      <span class="brand-mark" aria-hidden="true">M↔X</span>
+      <span class="brand-copy">
+        <strong>Live MT-MX Converter</strong>
+        <small>Deterministic mapping engine</small>
+      </span>
+    </a>
+    <span class="local-pill"><span class="local-dot"></span> Runs locally</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <p class="eyebrow">SWIFT MT · ISO 20022 MX</p>
+      <h1>Convert messages.<br><span>Know what changed.</span></h1>
+      <p class="intro-copy">Choose a supported message pair, paste your message and run the mapping rules. The input is checked before translation, and the generated output is checked again.</p>
+    </section>
+
+    <section class="workspace" aria-labelledby="converter-title">
+      <div class="workspace-head">
+        <div>
+          <p class="eyebrow">LOCAL WORKSPACE</p>
+          <h2 id="converter-title">Message converter</h2>
+        </div>
+        <p class="privacy-note"><span aria-hidden="true">●</span> No cloud calls or AI fallback</p>
+      </div>
+
+      <form method="post" action="/" id="converterForm">
+        <div class="format-row">
+          <div class="field-group">
+            <label for="sourceFormat">Source message format</label>
+            <select id="sourceFormat" name="source" required>
+              <!-- SOURCE_OPTIONS -->
+            </select>
+            <p class="field-hint">Select the format of the message you pasted.</p>
+          </div>
+          <div class="direction-arrow" aria-hidden="true">→</div>
+          <div class="field-group">
+            <label for="targetFormat">Destination message format</label>
+            <select id="targetFormat" name="target" required></select>
+            <p class="field-hint" id="targetHint">Only registered mappings are available.</p>
+          </div>
+        </div>
+
+        <div class="field-group message-field">
+          <div class="label-line">
+            <label for="sourceMessage">Source message</label>
+            <span class="field-hint">Paste XML or an MT message</span>
+          </div>
+          <textarea id="sourceMessage" name="message" maxlength="1000000" spellcheck="false" required placeholder="Paste your source message here…">__MESSAGE_VALUE__</textarea>
+          <div class="editor-footer">
+            <span id="inputCounter">0 characters</span>
+            <div class="editor-links"><button class="text-button" type="button" id="clearInput">Clear</button><a href="/examples/pacs.008.xml" target="_blank" rel="noreferrer">Open sample pacs.008</a></div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button class="button button-secondary" type="submit" name="action" value="validate">
+            <span aria-hidden="true">✓</span> Check input
+          </button>
+          <button class="button button-primary" id="translateButton" type="submit" name="action" value="convert">
+            Translate message <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <p class="privacy-footnote">Messages are processed by this local application. Do not use this prototype as a production banking channel.</p>
+      </form>
+
+      <!-- RESULT_PANEL -->
+    </section>
+
+    <section class="capability-section">
+      <div class="section-heading">
+        <p class="eyebrow">SCOPE OF THIS RELEASE</p>
+        <h2>Rules first. No guessing.</h2>
+      </div>
+      <div class="capability-grid">
+        <article class="capability-card">
+          <span class="capability-icon" aria-hidden="true">↔</span>
+          <h3>Registered pairs only</h3>
+          <p>Unsupported source and destination combinations are rejected instead of guessed.</p>
+        </article>
+        <article class="capability-card">
+          <span class="capability-icon" aria-hidden="true">✓</span>
+          <h3>Code-based checks</h3>
+          <p>Checks include XML parsing, IBAN checksum, BIC shape, dates, amounts and message-specific rules.</p>
+        </article>
+        <article class="capability-card">
+          <span class="capability-icon" aria-hidden="true">≠</span>
+          <h3>Visible differences</h3>
+          <p>Review notes, generated fields, dropped fields and mapping checks before using the result.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>Live MT-MX Converter</span>
+      <span>Local, deterministic and version-pinned</span>
+    </footer>
+  </main>
+
+</body>
+</html>

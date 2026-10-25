@@ -1,0 +1,13 @@
+{
+  "code": "MT103",
+  "family": "mt",
+  "label": "MT103",
+  "kind": "Single customer credit transfer",
+  "sub": "Single customer credit transfer",
+  "note": "Bob's $400 to Sweety, as the bank-to-bank MT103.",
+  "std": "MT",
+  "dest": [
+    "translator"
+  ],
+  "message": "{1:F01TESTAEADAXXX0000000000}{2:I103DEMOINBBXXXXN}{3:{121:eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4}}{4:\n:20:TESTAEAD-INSTR-0\n:23B:CRED\n:32A:260627USD400,00\n:50K:/AE070331234567890123456\nPayer Example\nExample Street, Test City\n:52A:TESTAEAD\n:57A:DEMOINBB\n:59:/1234567890123456\nPayee Example\nSample Avenue, Sample City\n:70:/ROC/BOB-INV0042\nInvoice 0042 - June freelance\n:71A:SHA\n-}\n"
+}

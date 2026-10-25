@@ -1,0 +1,13 @@
+{
+  "code": "pain.001",
+  "family": "pain",
+  "label": "pain.001",
+  "kind": "Customer credit transfer initiation",
+  "sub": "Customer credit transfer initiation",
+  "note": "Bob tells his bank in Test City to pay Sweety $400.",
+  "std": "MX",
+  "dest": [
+    "translator"
+  ],
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:pain.001.001.09\">\n  <CstmrCdtTrfInitn>\n    <GrpHdr>\n      <MsgId>BOB-MSG-20260627</MsgId>\n      <CreDtTm>2026-06-27T09:28:14+04:00</CreDtTm>\n      <NbOfTxs>1</NbOfTxs>\n      <CtrlSum>400.00</CtrlSum>\n      <InitgPty><Nm>Payer Example</Nm></InitgPty>\n    </GrpHdr>\n    <PmtInf>\n      <PmtInfId>BOB-PMT-0042</PmtInfId>\n      <PmtMtd>TRF</PmtMtd>\n      <NbOfTxs>1</NbOfTxs>\n      <CtrlSum>400.00</CtrlSum>\n      <ReqdExctnDt><Dt>2026-06-27</Dt></ReqdExctnDt>\n      <Dbtr>\n        <Nm>Payer Example</Nm>\n        <PstlAdr><StrtNm>Example Street</StrtNm><TwnNm>Test City</TwnNm><Ctry>AE</Ctry></PstlAdr>\n      </Dbtr>\n      <DbtrAcct><Id><IBAN>AE070331234567890123456</IBAN></Id></DbtrAcct>\n      <DbtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></DbtrAgt>\n      <ChrgBr>SHAR</ChrgBr>\n      <CdtTrfTxInf>\n        <PmtId><EndToEndId>BOB-INV0042</EndToEndId></PmtId>\n        <Amt><InstdAmt Ccy=\"USD\">400.00</InstdAmt></Amt>\n        <CdtrAgt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></CdtrAgt>\n        <Cdtr>\n          <Nm>Payee Example</Nm>\n          <PstlAdr><StrtNm>Sample Avenue</StrtNm><TwnNm>Sample City</TwnNm><Ctry>IN</Ctry></PstlAdr>\n        </Cdtr>\n        <CdtrAcct><Id><Othr><Id>1234567890123456</Id></Othr></Id></CdtrAcct>\n        <RmtInf><Ustrd>Invoice 0042 - June freelance</Ustrd></RmtInf>\n      </CdtTrfTxInf>\n    </PmtInf>\n  </CstmrCdtTrfInitn>\n</Document>\n"
+}

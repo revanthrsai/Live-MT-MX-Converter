@@ -1,0 +1,13 @@
+{
+  "code": "pacs.008",
+  "family": "pacs",
+  "label": "pacs.008",
+  "kind": "Credit transfer",
+  "sub": "FI-to-FI Customer Credit Transfer",
+  "note": "the sending bank to the receiving bank, on the wire. The one the Transformer speaks.",
+  "dest": [
+    "viewer",
+    "transformer"
+  ],
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Document xmlns=\"urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08\">\n  <FIToFICstmrCdtTrf>\n    <GrpHdr>\n      <MsgId>TESTAEAD-20260627-000400</MsgId>\n      <CreDtTm>2026-06-27T09:30:00+04:00</CreDtTm>\n      <NbOfTxs>1</NbOfTxs>\n      <SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf>\n      <InstgAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></InstgAgt>\n      <InstdAgt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></InstdAgt>\n    </GrpHdr>\n    <CdtTrfTxInf>\n      <PmtId>\n        <InstrId>TESTAEAD-INSTR-0400</InstrId>\n        <EndToEndId>BOB-INV0042</EndToEndId>\n        <UETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</UETR>\n      </PmtId>\n      <IntrBkSttlmAmt Ccy=\"USD\">400.00</IntrBkSttlmAmt>\n      <IntrBkSttlmDt>2026-06-27</IntrBkSttlmDt>\n      <ChrgBr>SHAR</ChrgBr>\n      <Dbtr>\n        <Nm>Payer Example</Nm>\n        <PstlAdr><StrtNm>Example Street</StrtNm><TwnNm>Test City</TwnNm><Ctry>AE</Ctry></PstlAdr>\n      </Dbtr>\n      <DbtrAcct><Id><IBAN>AE070331234567890123456</IBAN></Id></DbtrAcct>\n      <DbtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></DbtrAgt>\n      <CdtrAgt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></CdtrAgt>\n      <Cdtr>\n        <Nm>Payee Example</Nm>\n        <PstlAdr><StrtNm>Sample Avenue</StrtNm><TwnNm>Sample City</TwnNm><Ctry>IN</Ctry></PstlAdr>\n      </Cdtr>\n      <CdtrAcct><Id><Othr><Id>1234567890123456</Id></Othr></Id></CdtrAcct>\n      <RmtInf><Ustrd>Invoice 0042 - June freelance</Ustrd></RmtInf>\n    </CdtTrfTxInf>\n  </FIToFICstmrCdtTrf>\n</Document>"
+}

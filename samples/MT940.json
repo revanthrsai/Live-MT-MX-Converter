@@ -1,0 +1,13 @@
+{
+  "code": "MT940",
+  "family": "mt",
+  "label": "MT940",
+  "kind": "Customer statement",
+  "sub": "Customer statement",
+  "note": "Sweety's end-of-day statement, with Bob's $400 booked.",
+  "std": "MT",
+  "dest": [
+    "translator"
+  ],
+  "message": "{1:F01DEMOINBBAXXX0000000000}{2:I940DEMOINBBXXXXN}{4:\n:20:STMT-20260627-01\n:25:1234567890123456\n:28C:1/1\n:60F:C260627USD0,00\n:61:2606270627C400,00NTRFBOB-INV0042\n:86:Payer Example / Invoice 0042 - June freelance\n:62F:C260627USD400,00\n:64:C260627USD400,00\n-}\n"
+}
