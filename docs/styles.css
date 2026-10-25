@@ -434,3 +434,47 @@ h1 span { color: #2e805e; }
   .workspace-head-actions { width: 100%; }
   .workspace-head-actions .small-button { flex: 1; }
 }
+
+/* Header link pills: Academy attribution and LinkedIn contact. */
+.brand { display: inline-flex; align-items: center; min-width: 0; flex: 1 1 auto; color: inherit; text-decoration: none; }
+.brand-copy { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.brand-copy strong { color: #1a3429; font-size: 14px; font-weight: 800; letter-spacing: -.2px; white-space: nowrap; }
+.header-link-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid #d8e9dc;
+  border-radius: 999px;
+  color: #35664b;
+  background: #f5faf6;
+  font-size: 11px;
+  font-weight: 720;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .16s ease, background .16s ease, border-color .16s ease, transform .16s ease;
+}
+.header-link-pill:hover { color: #07563f; background: #eaf5ed; border-color: #bcd8c3; transform: translateY(-1px); }
+.header-link-pill:focus-visible { outline: 3px solid rgba(8, 123, 90, .3); outline-offset: 3px; }
+.academy-pill { color: #43805c; background: #f2f8f3; }
+.header-link-arrow { color: #43805c; font-size: 13px; }
+.linkedin-pill { gap: 8px; }
+.linkedin-pill .linkedin-mark { width: 19px; height: 19px; flex: 0 0 auto; border-radius: 5px; font-size: 10px; }
+@media (max-width: 620px) {
+  .topbar-inner { gap: 10px; }
+  .brand-copy { gap: 6px; }
+  .brand-copy strong { font-size: 12px; }
+  .header-link-pill { min-height: 30px; padding: 0 8px; gap: 5px; font-size: 10px; }
+  .linkedin-pill { gap: 6px; }
+}
+@media (max-width: 420px) {
+  .topbar-inner { width: calc(100% - 24px); gap: 8px; }
+  .brand-copy { gap: 5px; }
+  .brand-copy strong { font-size: 11px; }
+  .academy-pill { min-height: 28px; padding: 0 7px; gap: 4px; font-size: 9px; }
+  .header-link-text { display: none; }
+  .linkedin-pill { width: 32px; height: 32px; min-height: 32px; padding: 0; }
+}
