@@ -14,6 +14,29 @@
 
   let preferredTarget = document.body.dataset.selectedTarget || "";
 
+  const sampleFiles = {
+    "pacs.008": "pacs.008.xml",
+    "pacs.004": "pacs.004.xml",
+    "pacs.002": "pacs.002.xml",
+    "pain.001": "pain.001.xml",
+    "pain.002": "pain.002.xml",
+    "pain.008": "pain.008.xml",
+    "camt.053": "camt.053.xml",
+    "camt.054": "camt.054.xml",
+    "camt.056": "camt.056.xml",
+    "MT103": "MT103.txt",
+    "MT103 RETN": "MT103-RETN.txt",
+    "MT101": "MT101.txt",
+    "MT104": "MT104.txt",
+    "MT940": "MT940.txt",
+    "MT900 / MT910": "MT910.txt",
+    "MT192": "MT192.txt",
+  };
+
+  function clearRenderedResults() {
+    document.querySelectorAll("#resultPanel, #outputPanel").forEach((node) => node.remove());
+  }
+
   function populateTargets(preserveChoice = true) {
     const source = sourceSelect.value;
     const available = pairs[source] || [];
@@ -54,6 +77,7 @@
   sourceSelect.addEventListener("change", () => {
     preferredTarget = "";
     populateTargets(false);
+    clearRenderedResults();
   });
   targetSelect.addEventListener("change", () => {
     preferredTarget = targetSelect.value;
@@ -61,7 +85,10 @@
       ? "The engine selects MT900 for debit entries and MT910 for credit entries."
       : "Only registered mappings are available.";
   });
-  messageInput.addEventListener("input", updateCounter);
+  messageInput.addEventListener("input", () => {
+    updateCounter();
+    clearRenderedResults();
+  });
 
   const copyButton = document.getElementById("copyOutput");
   if (copyButton) {
@@ -101,7 +128,32 @@
     clearButton.addEventListener("click", () => {
       messageInput.value = "";
       updateCounter();
+      clearRenderedResults();
       messageInput.focus();
+    });
+  }
+
+  const loadSampleButton = document.getElementById("loadSample");
+  if (loadSampleButton) {
+    loadSampleButton.addEventListener("click", async () => {
+      const filename = sampleFiles[sourceSelect.value];
+      if (!filename) return;
+      loadSampleButton.disabled = true;
+      const previousText = loadSampleButton.innerHTML;
+      loadSampleButton.textContent = "Loading…";
+      try {
+        const url = new URL(`examples/${filename}`, window.location.href);
+        const response = await fetch(url, { cache: "no-cache", credentials: "same-origin" });
+        if (!response.ok) throw new Error(`Could not load sample (HTTP ${response.status}).`);
+        messageInput.value = await response.text();
+        updateCounter();
+        clearRenderedResults();
+      } catch (error) {
+        window.alert(error.message || "Unable to load the sample message.");
+      } finally {
+        loadSampleButton.innerHTML = previousText;
+        loadSampleButton.disabled = false;
+      }
     });
   }
 

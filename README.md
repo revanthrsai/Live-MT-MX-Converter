@@ -178,3 +178,7 @@ After the push, verify that **Settings → Pages → Build and deployment → So
 ## License
 
 Choose and add a license before publishing this repository publicly. The source code is prepared for a separate repository, but this archive intentionally does not select a license on the owner's behalf.
+
+## Bundled sample messages
+
+Use **Load sample** to populate the editor with a synthetic message for the currently selected source format. The `examples/` directory includes a sample for every source format currently registered by the deterministic conversion engine. See [`examples/README.md`](examples/README.md) for the sample catalog. These fixtures are for learning and testing only, not for production banking.

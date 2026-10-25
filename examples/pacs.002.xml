@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10">
+  <FIToFIPmtStsRpt>
+    <GrpHdr>
+      <MsgId>DEMOINBB-STS-20260627-400</MsgId>
+      <CreDtTm>2026-06-27T15:01:40+05:30</CreDtTm>
+      <InstgAgt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></InstgAgt>
+      <InstdAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></InstdAgt>
+    </GrpHdr>
+    <TxInfAndSts>
+      <OrgnlGrpInf><OrgnlMsgId>TESTAEAD-20260627-000400</OrgnlMsgId><OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId></OrgnlGrpInf>
+      <OrgnlInstrId>TESTAEAD-INSTR-0400</OrgnlInstrId>
+      <OrgnlEndToEndId>BOB-INV0042</OrgnlEndToEndId>
+      <OrgnlUETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</OrgnlUETR>
+      <TxSts>ACSC</TxSts>
+      <AccptncDtTm>2026-06-27T15:01:30+05:30</AccptncDtTm>
+    </TxInfAndSts>
+  </FIToFIPmtStsRpt>
+</Document>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.056.001.08">
+  <FIToFIPmtCxlReq>
+    <Assgnmt>
+      <Id>TESTAEAD-CXL-0400</Id>
+      <Assgnr><Agt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></Agt></Assgnr>
+      <Assgne><Agt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></Agt></Assgne>
+      <CreDtTm>2026-06-27T16:40:00+04:00</CreDtTm>
+    </Assgnmt>
+    <Undrlyg>
+      <TxInf>
+        <CxlId>TESTAEAD-CXL-TX-0400</CxlId>
+        <OrgnlGrpInf><OrgnlMsgId>TESTAEAD-20260627-000400</OrgnlMsgId><OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId></OrgnlGrpInf>
+        <OrgnlInstrId>TESTAEAD-INSTR-0400</OrgnlInstrId>
+        <OrgnlEndToEndId>BOB-INV0042</OrgnlEndToEndId>
+        <OrgnlUETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</OrgnlUETR>
+        <OrgnlIntrBkSttlmAmt Ccy="USD">400.00</OrgnlIntrBkSttlmAmt>
+        <OrgnlIntrBkSttlmDt>2026-06-27</OrgnlIntrBkSttlmDt>
+        <CxlRsnInf><Rsn><Cd>DUPL</Cd></Rsn></CxlRsnInf>
+      </TxInf>
+    </Undrlyg>
+  </FIToFIPmtCxlReq>
+</Document>

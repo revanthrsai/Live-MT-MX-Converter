@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.002.001.10">
+  <CstmrPmtStsRpt>
+    <GrpHdr>
+      <MsgId>TESTAEAD-STS-20260627-01</MsgId>
+      <CreDtTm>2026-06-27T09:29:02+04:00</CreDtTm>
+      <InitgPty><Nm>Example Sending Bank</Nm></InitgPty>
+    </GrpHdr>
+    <OrgnlGrpInfAndSts>
+      <OrgnlMsgId>BOB-MSG-20260627</OrgnlMsgId>
+      <OrgnlMsgNmId>pain.001.001.09</OrgnlMsgNmId>
+      <GrpSts>ACCP</GrpSts>
+    </OrgnlGrpInfAndSts>
+    <OrgnlPmtInfAndSts>
+      <OrgnlPmtInfId>BOB-PMT-0042</OrgnlPmtInfId>
+      <TxInfAndSts>
+        <OrgnlEndToEndId>BOB-INV0042</OrgnlEndToEndId>
+        <OrgnlUETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</OrgnlUETR>
+        <TxSts>ACCP</TxSts>
+      </TxInfAndSts>
+    </OrgnlPmtInfAndSts>
+  </CstmrPmtStsRpt>
+</Document>

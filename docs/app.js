@@ -32,13 +32,25 @@
   let pythonReady = false;
   let busy = false;
 
+  // One bundled synthetic sample for every source format currently registered
+  // in the conversion engine. MT900 / MT910 uses an MT910 credit example.
   const SAMPLE_FILES = {
     "pacs.008": "pacs.008.xml",
+    "pacs.004": "pacs.004.xml",
+    "pacs.002": "pacs.002.xml",
     "pain.001": "pain.001.xml",
+    "pain.002": "pain.002.xml",
+    "pain.008": "pain.008.xml",
     "camt.053": "camt.053.xml",
+    "camt.054": "camt.054.xml",
+    "camt.056": "camt.056.xml",
     "MT103": "MT103.txt",
+    "MT103 RETN": "MT103-RETN.txt",
     "MT101": "MT101.txt",
+    "MT104": "MT104.txt",
     "MT940": "MT940.txt",
+    "MT900 / MT910": "MT910.txt",
+    "MT192": "MT192.txt",
   };
 
   function setBanner(state, title, detail) {
@@ -350,14 +362,15 @@
   async function loadSample() {
     const filename = SAMPLE_FILES[sourceSelect.value];
     if (!filename) {
-      setBanner("ready", "No bundled sample for this source", "Paste a synthetic message matching the selected format, or select pacs.008, pain.001, camt.053, MT103, MT101 or MT940.");
+      setBanner("error", "Sample unavailable", "No sample is bundled for this source yet. Please report this repository issue.");
       return;
     }
     try {
       messageInput.value = await getText(`examples/${filename}`);
       updateCounter();
       resultContainer.replaceChildren();
-      setBanner("ready", "Synthetic sample loaded", "The sample uses synthetic test data. Review it before translating.");
+      // Keep the workspace clear; the textarea content itself confirms the sample loaded.
+      setBanner("ready", "Local engine ready", "");
     } catch (error) {
       setBanner("error", "Could not load sample", error.message || String(error));
     }

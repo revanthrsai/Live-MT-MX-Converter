@@ -20,7 +20,7 @@
           <small>by ISO 20022 Academy</small>
         </span>
       </a>
-      <span class="tool-label">A business message tool</span>
+      <span class="tool-label">A Business Message Tool</span>
     </div>
   </header>
 
@@ -37,6 +37,12 @@
         <div class="workspace-title-group">
           <h2 id="converter-title">Message converter</h2>
           <p class="workspace-subtitle">Choose the formats, paste your message, and review the result.</p>
+        </div>
+        <div class="workspace-head-actions" aria-label="Message actions">
+          <button class="small-button sample-top-button" type="button" id="loadSample">
+            <span aria-hidden="true">＋</span> Load sample
+          </button>
+          <button class="small-button clear-top-button" type="button" id="clearInput">Clear</button>
         </div>
       </div>
 
@@ -64,7 +70,6 @@
             <textarea id="sourceMessage" name="message" maxlength="1000000" spellcheck="false" required placeholder="Paste your source message here…">__MESSAGE_VALUE__</textarea>
             <div class="editor-footer">
               <span class="character-count"><span class="count-dot" aria-hidden="true"></span><span id="inputCounter">0 characters</span></span>
-              <div class="editor-links"><a class="text-button sample-button" href="/examples/pacs.008.xml" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span> Open pacs.008 sample</a><span class="action-divider" aria-hidden="true"></span><button class="text-button clear-button" type="button" id="clearInput">Clear</button></div>
             </div>
           </div>
         </div>

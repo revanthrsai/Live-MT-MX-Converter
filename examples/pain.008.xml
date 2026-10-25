@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.08">
+  <CstmrDrctDbtInitn>
+    <GrpHdr>
+      <MsgId>UTIL-DD-20260627</MsgId>
+      <CreDtTm>2026-06-27T06:00:00+04:00</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>120.00</CtrlSum>
+      <InitgPty><Nm>Example Utility Co</Nm></InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>UTIL-PMT-0007</PmtInfId>
+      <PmtMtd>DD</PmtMtd>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>120.00</CtrlSum>
+      <ReqdColltnDt>2026-06-30</ReqdColltnDt>
+      <Cdtr><Nm>Example Utility Co</Nm></Cdtr>
+      <CdtrAcct><Id><IBAN>AE020331000000000099887</IBAN></Id></CdtrAcct>
+      <CdtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></CdtrAgt>
+      <DrctDbtTxInf>
+        <PmtId><EndToEndId>UTIL-JUN-0007</EndToEndId></PmtId>
+        <InstdAmt Ccy="AED">120.00</InstdAmt>
+        <DrctDbtTx><MndtRltdInf><MndtId>EXAMPLE-MANDATE-1187</MndtId><DtOfSgntr>2025-01-15</DtOfSgntr></MndtRltdInf></DrctDbtTx>
+        <DbtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></DbtrAgt>
+        <Dbtr><Nm>Payer Example</Nm></Dbtr>
+        <DbtrAcct><Id><IBAN>AE070331234567890123456</IBAN></Id></DbtrAcct>
+        <RmtInf><Ustrd>Electricity - June</Ustrd></RmtInf>
+      </DrctDbtTxInf>
+    </PmtInf>
+  </CstmrDrctDbtInitn>
+</Document>

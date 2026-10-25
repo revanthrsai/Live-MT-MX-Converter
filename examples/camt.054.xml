@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08">
+  <BkToCstmrDbtCdtNtfctn>
+    <GrpHdr>
+      <MsgId>DEMOINBB-NTF-20260627-77</MsgId>
+      <CreDtTm>2026-06-27T15:02:11+05:30</CreDtTm>
+    </GrpHdr>
+    <Ntfctn>
+      <Id>NTF-77-0042</Id>
+      <Acct>
+        <Id><Othr><Id>1234567890123456</Id></Othr></Id>
+        <Ccy>USD</Ccy>
+        <Ownr><Nm>Payee Example</Nm></Ownr>
+      </Acct>
+      <Ntry>
+        <Amt Ccy="USD">400.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts><Cd>BOOK</Cd></Sts>
+        <BookgDt><DtTm>2026-06-27T15:02:00+05:30</DtTm></BookgDt>
+        <ValDt><Dt>2026-06-27</Dt></ValDt>
+        <NtryDtls><TxDtls>
+          <Refs><InstrId>TESTAEAD-INSTR-0400</InstrId><EndToEndId>BOB-INV0042</EndToEndId><UETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</UETR></Refs>
+          <RltdPties><Dbtr><Pty><Nm>Payer Example</Nm></Pty></Dbtr></RltdPties>
+          <RltdAgts><DbtrAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></DbtrAgt></RltdAgts>
+          <RmtInf><Ustrd>Invoice 0042 - June freelance</Ustrd></RmtInf>
+        </TxDtls></NtryDtls>
+      </Ntry>
+    </Ntfctn>
+  </BkToCstmrDbtCdtNtfctn>
+</Document>

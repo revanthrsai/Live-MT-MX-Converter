@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.09">
+  <PmtRtr>
+    <GrpHdr>
+      <MsgId>DEMOINBB-RTR-20260628-009</MsgId>
+      <CreDtTm>2026-06-28T11:14:00+05:30</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <SttlmInf><SttlmMtd>INDA</SttlmMtd></SttlmInf>
+      <InstgAgt><FinInstnId><BICFI>DEMOINBB</BICFI></FinInstnId></InstgAgt>
+      <InstdAgt><FinInstnId><BICFI>TESTAEAD</BICFI></FinInstnId></InstdAgt>
+    </GrpHdr>
+    <TxInf>
+      <RtrId>DEMOINBB-RTR-0400</RtrId>
+      <OrgnlGrpInf><OrgnlMsgId>TESTAEAD-20260627-000400</OrgnlMsgId><OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId></OrgnlGrpInf>
+      <OrgnlInstrId>TESTAEAD-INSTR-0400</OrgnlInstrId>
+      <OrgnlEndToEndId>BOB-INV0042</OrgnlEndToEndId>
+      <OrgnlUETR>eb6305c9-1f7c-4a9b-9b1e-2c2f4e7a91d4</OrgnlUETR>
+      <RtrdIntrBkSttlmAmt Ccy="USD">400.00</RtrdIntrBkSttlmAmt>
+      <IntrBkSttlmDt>2026-06-28</IntrBkSttlmDt>
+      <ChrgBr>SHAR</ChrgBr>
+      <RtrRsnInf><Rsn><Cd>AC04</Cd></Rsn><AddtlInf>Closed account</AddtlInf></RtrRsnInf>
+    </TxInf>
+  </PmtRtr>
+</Document>

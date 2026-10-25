@@ -399,7 +399,7 @@ h1 span { color: #2e805e; }
   .brand-copy { display: grid; gap: 0; }
   .brand-copy strong { font-size: 12px; }
   .brand-copy small { font-size: 10px; }
-  .tool-label { max-width: 112px; font-size: 10px; text-align: right; white-space: normal; line-height: 1.35; }
+  .tool-label { max-width: 145px; font-size: 10px; text-align: right; white-space: normal; line-height: 1.35; }
   .page-shell { width: calc(100% - 28px); }
   .hero { padding: 36px 0 20px; }
   h1 { font-size: clamp(36px, 9vw, 46px); letter-spacing: -2px; line-height: 1.08; }
@@ -416,3 +416,21 @@ h1 span { color: #2e805e; }
   .footer-caption { text-align: left; order: 3; }
 }
 
+/* Final header and workspace-action refinements. */
+.brand-copy small { color: #5b9874; }
+.tool-label { text-transform: none; }
+.workspace-head-actions { display: flex; align-items: center; justify-content: flex-end; flex: 0 0 auto; gap: 9px; }
+.workspace-head-actions .small-button { min-height: 40px; padding: 0 14px; border-radius: 9px; font-size: 11px; }
+.workspace-head-actions .sample-top-button { display: inline-flex; align-items: center; gap: 7px; border-color: #cbded0; color: #245b40; background: #f6fbf7; }
+.workspace-head-actions .sample-top-button > span { color: #087b5a; font-size: 16px; line-height: 1; }
+.workspace-head-actions .sample-top-button:hover:not(:disabled) { border-color: #a9ccb3; background: #eef8f0; }
+.workspace-head-actions .clear-top-button { border-color: #e1e8e1; color: #65776a; background: #fff; }
+.workspace-head-actions .small-button:disabled { opacity: .52; cursor: not-allowed; }
+.editor-footer { justify-content: flex-start; }
+/* Keep the page quiet after initialization; loading and error feedback remain visible. */
+.runtime-banner.ready { display: none; }
+@media (max-width: 620px) {
+  .workspace-head { align-items: flex-start; flex-direction: column; gap: 13px; }
+  .workspace-head-actions { width: 100%; }
+  .workspace-head-actions .small-button { flex: 1; }
+}
