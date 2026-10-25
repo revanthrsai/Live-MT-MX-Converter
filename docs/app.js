@@ -389,7 +389,7 @@
 
   async function initialize() {
     try {
-      setBanner("", "Preparing the mapping engine…", "Loading the pinned Python runtime and XML support. First-time setup may take a little longer.");
+      setBanner("", "Preparing the mapping engine…", "Loading the local mapping engine. First-time setup may take a moment.");
       await loadPyodideScript();
       pyodide = await window.loadPyodide({ indexURL: PYODIDE_BASE });
       await pyodide.loadPackage("lxml");
@@ -401,7 +401,7 @@
       pythonReady = true;
       setControlsEnabled(true);
       updateCounter();
-      setBanner("ready", "Mapping engine ready", "The existing Python mapping engine and code-based checks are ready. Your messages are processed locally.");
+      setBanner("ready", "Mapping engine ready", "Ready for local conversion. Your message stays in your browser.");
     } catch (error) {
       console.error("Live MT-MX runtime initialization failed", error);
       setBanner("error", "Could not initialize the mapping engine", `${String(error.message || error).slice(0, 400)} Check your internet connection and browser network policy, then reload. No conversion API is configured.`);
