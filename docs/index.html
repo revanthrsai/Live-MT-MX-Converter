@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="A browser-based, rules-only SWIFT MT and ISO 20022 message converter.">
+  <title>Live MT-MX Converter</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Live MT-MX Converter home">
+      <span class="brand-mark" aria-hidden="true">M↔X</span>
+      <span class="brand-copy">
+        <strong>Live MT-MX Converter</strong>
+        <small>Deterministic mapping engine</small>
+      </span>
+    </a>
+    <span class="local-pill"><span class="local-dot"></span> Runs in your browser</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <p class="eyebrow">SWIFT MT · ISO 20022 MX</p>
+      <h1>Convert messages.<br><span>Know what changed.</span></h1>
+      <p class="intro-copy">Choose a supported message pair, paste your message and run the existing deterministic mapping rules. Input is checked before translation and generated output is checked again.</p>
+    </section>
+
+    <section class="runtime-banner" id="runtimeBanner" role="status" aria-live="polite">
+      <span class="runtime-spinner" aria-hidden="true"></span>
+      <div>
+        <strong id="runtimeTitle">Preparing local conversion engine…</strong>
+        <p id="runtimeDetail">The browser is loading the Python runtime and XML support. Your payment message is not sent to the runtime host.</p>
+      </div>
+    </section>
+
+    <section class="workspace" aria-labelledby="converter-title">
+      <div class="workspace-head">
+        <div>
+          <p class="eyebrow">BROWSER WORKSPACE</p>
+          <h2 id="converter-title">Message converter</h2>
+        </div>
+        <p class="privacy-note"><span aria-hidden="true">●</span> No conversion API or AI</p>
+      </div>
+
+      <form id="converterForm" novalidate>
+        <div class="format-row">
+          <div class="field-group">
+            <label for="sourceFormat">Source message format</label>
+            <select id="sourceFormat" name="source" required disabled>
+              <option>Loading supported formats…</option>
+            </select>
+            <p class="field-hint">Select the format of the message you pasted.</p>
+          </div>
+          <div class="direction-arrow" aria-hidden="true">→</div>
+          <div class="field-group">
+            <label for="targetFormat">Destination message format</label>
+            <select id="targetFormat" name="target" required disabled>
+              <option>Loading mappings…</option>
+            </select>
+            <p class="field-hint" id="targetHint">Only registered mappings will be shown.</p>
+          </div>
+        </div>
+
+        <div class="field-group message-field">
+          <div class="label-line">
+            <label for="sourceMessage">Source message</label>
+            <span class="field-hint">Paste XML or an MT message</span>
+          </div>
+          <textarea id="sourceMessage" name="message" maxlength="1000000" spellcheck="false" required placeholder="Paste your source message here…" disabled></textarea>
+          <div class="editor-footer">
+            <span id="inputCounter">0 characters</span>
+            <div class="editor-links">
+              <button class="text-button" type="button" id="loadSample" disabled>Load sample</button>
+              <button class="text-button" type="button" id="clearInput" disabled>Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button class="button button-secondary" id="checkButton" type="button" disabled><span aria-hidden="true">✓</span> Check input</button>
+          <button class="button button-primary" id="translateButton" type="button" disabled>Translate message <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="privacy-footnote">Conversion and validation run in this browser tab. The first visit downloads the pinned Python runtime and XML package files from jsDelivr; your pasted message is not included in those requests. This is a development/learning tool, not a production banking channel.</p>
+      </form>
+
+      <div id="resultContainer" aria-live="polite"></div>
+    </section>
+
+    <section class="capability-section">
+      <div class="section-heading">
+        <p class="eyebrow">SCOPE OF THIS RELEASE</p>
+        <h2>Rules first. No guessing.</h2>
+      </div>
+      <div class="capability-grid">
+        <article class="capability-card">
+          <span class="capability-icon" aria-hidden="true">↔</span>
+          <h3>Registered pairs only</h3>
+          <p>Unsupported source and destination combinations are rejected instead of guessed. The dropdown is populated from the existing engine registry.</p>
+        </article>
+        <article class="capability-card">
+          <span class="capability-icon" aria-hidden="true">✓</span>
+          <h3>Code-based checks</h3>
+          <p>Checks include XML parsing, IBAN checksum, BIC structure, dates, amounts and implemented message-specific rules.</p>
+        </article>
+        <article class="capability-card">
+          <span class="capability-icon" aria-hidden="true">≠</span>
+          <h3>Visible differences</h3>
+          <p>Review notes, generated fields, dropped fields, mapping checks and value-fidelity findings before using the result.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>Live MT-MX Converter</span>
+      <span>Local, deterministic and version-pinned</span>
+    </footer>
+  </main>
+</body>
+</html>

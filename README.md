@@ -1,8 +1,8 @@
 # Live MT-MX Converter
 
-A small, locally runnable SWIFT MT ↔ ISO 20022 message converter built from the deterministic mapping engine in ISO 20022 Academy.
+A small SWIFT MT ↔ ISO 20022 message converter built from the deterministic mapping engine in ISO 20022 Academy. It supports both a local Python runner and a GitHub Pages version that executes the same checked-in Python engine inside the browser using Pyodide/WebAssembly.
 
-**This first release is intentionally rules-only.** It has no AI, no external API calls, no cloud processing, no runtime schema downloading, no auto-repair, and no analytics or database. The browser form is served by a Python process bound to `127.0.0.1`; conversion and validation run in that same local process.
+**This first release is intentionally rules-only.** It has no AI, no external conversion API, no cloud processing of message content, no runtime schema downloading, no auto-repair, and no analytics or database. In GitHub Pages mode, the Python runtime and the `lxml` XML package are loaded as static software assets from the pinned jsDelivr CDN. The converter runs in the browser; the pasted payment message is not sent to jsDelivr or a conversion service. The existing local mode still binds a Python server to `127.0.0.1` and performs conversion in that local process.
 
 > **Important:** This is a development/learning tool, not a certified banking gateway or a production payment-processing system. Always review mapped fields, warnings, missing values and the relevant scheme/bank usage guidelines before using output in a real workflow.
 
@@ -15,7 +15,7 @@ A small, locally runnable SWIFT MT ↔ ISO 20022 message converter built from th
 - Check output structure, field-level mapping rules and value fidelity after translation.
 - Show the engine's notes, generated values and explicitly dropped fields.
 - Copy or download the generated message.
-- Process message content locally; request logging is disabled and no remote service is called.
+- Process message content locally; no remote conversion service is called. The local runner suppresses request logging.
 
 ## Requirements
 
@@ -49,7 +49,21 @@ Then open the local URL printed by the program (by default `http://127.0.0.1:876
 
 A different local port can be selected with `python run.py 8766`.
 
-The only dependency that needs installing is `lxml`. Runtime conversion does not make any outbound network calls. Installing Python packages may, of course, require internet access unless they are already available in your environment.
+## Host the converter on GitHub Pages
+
+This repository includes a GitHub Actions workflow at `.github/workflows/pages.yml`. It builds a static website from `docs/` and copies the canonical Python engine from `app/` into the generated site. The mapping engine is not duplicated or separately rewritten for the hosted version.
+
+1. Push the workflow and the modified project files to the `main` branch.
+2. On GitHub, open **Settings → Pages** for the repository.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Push a new commit or manually run **Deploy Live MT-MX Converter to GitHub Pages** from the **Actions** tab.
+5. Open `https://revanthrsai.github.io/Live-MT-MX-Converter/` after the deployment workflow succeeds.
+
+The workflow runs `python scripts/build_pages.py`, which creates the `dist/` folder used by the Pages deployment. You do not need to commit `dist/`. The page reads the actual converter registry from `app/engine/__init__.py`, so the source and destination dropdowns stay aligned with the engine rules.
+
+**Runtime/network note:** Pyodide and `lxml` are pinned and downloaded from jsDelivr on first use (then typically cached by the browser). This is not a conversion API: the message itself is processed in the browser. The current Pages version needs a network connection to load those runtime assets. If you require all runtime assets to be hosted only from your own repository, the Pyodide distribution and compatible `lxml` package can be vendored in a separate packaging step.
+
+For local Python mode, the only third-party dependency to install is `lxml`; local runtime conversion makes no outbound network calls. Installing Python packages may require internet access unless they are already available in your environment.
 
 ## Supported conversion pairs in this release
 
@@ -116,12 +130,17 @@ app/
     mt_to_mx.py         MT → ISO 20022 mapping functions
     __init__.py         supported pairs, splitting and translation orchestration
 web/
-  index.html            plain HTML user interface
-  app.js                local dropdown and button behavior only
+  index.html            plain HTML interface for the local Python runner
+  app.js                local dropdown and button behavior
   styles.css            responsive presentation
+docs/
+  index.html            static GitHub Pages interface
+  app.js                loads Pyodide and calls the checked-in engine locally
+  bridge.py             JSON bridge from the page into the Python engine
+scripts/build_pages.py  copies the canonical engine into dist/ for deployment
+.github/workflows/pages.yml  builds and deploys the static Pages site
 server.py               loopback-only local form handler
-examples/               small synthetic examples
-samples/                regression fixtures carried over from the source codebase
+examples/               synthetic sample messages
 tests/                  deterministic tests
 ```
 
@@ -137,27 +156,24 @@ The tests use synthetic examples and verify conversion pairs, validation behavio
 
 ## Privacy and safety
 
-- The program binds only to `127.0.0.1`, not your LAN address or a public interface.
-- Pasted source messages are not logged or stored by this app.
-- The HTML form communicates only with this local process.
+- In local mode, the Python server binds only to `127.0.0.1`, not your LAN address or a public interface.
+- In GitHub Pages mode, conversion runs in the visitor's browser. The pasted message is not sent to jsDelivr or a conversion service; only the runtime/package assets and checked-in engine source are downloaded.
+- The app does not log or persist pasted source messages.
 - Do not paste production customer messages into public issue trackers or commit them as fixtures.
 - Conversion can be lossy. The app lists known dropped fields and value-fidelity findings, but its checks cannot prove universal compliance with every bank or scheme rule.
 
-## Publish this folder to GitHub
+## Push changes to the existing GitHub repository
 
-1. Create an empty GitHub repository named `live-mt-mx-converter` (do not pre-create a README or license file).
-2. Extract this project folder and open a terminal inside it.
-3. Initialize Git and push the first commit:
+For the existing `revanthrsai/Live-MT-MX-Converter` repository, extract this archive into your already-cloned local repository folder and allow the files to merge/overwrite the earlier version. Keep the existing `.git/` folder. Then run:
 
 ```bash
-git init -b main
+git status
 git add .
-git commit -m "Initial deterministic MT-MX converter"
-git remote add origin https://github.com/<your-github-username>/live-mt-mx-converter.git
-git push -u origin main
+git commit -m "Add browser-based GitHub Pages converter"
+git push origin main
 ```
 
-Before making the GitHub repository public, choose the license you want to publish under.
+After the push, verify that **Settings → Pages → Build and deployment → Source** is set to **GitHub Actions**. The workflow in `.github/workflows/pages.yml` builds and deploys the site. Choose a license before making the repository public if you want others to reuse or redistribute the code.
 
 ## License
 
